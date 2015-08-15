@@ -12,7 +12,8 @@ git \
 libicu-dev \
 libmcrypt-dev \
 libpng-dev \
-libxml2-dev && \
+libxml2-dev \
+nodejs && \
 apt-get clean
 
 # Install PHP extensions
@@ -36,11 +37,12 @@ RUN git clone -b $OROCRM_VERSION $OROCRM_GIT_URL .
 
 # Copy configs and scripts
 COPY config/php.ini /usr/local/etc/php/
+COPY config/OroRequirements.php app/
 
 # Get dependencies
 RUN composer install
 
-RUN chown -R www-data:www-data web app/cache app/config/parameters.yml app/logs
+RUN chown -R www-data:www-data web app/cache app/config/parameters.yml app/logs app/attachment app/attachments
 RUN rm -rf /var/www/html && ln -s /var/www/orocrm/web /var/www/html
 RUN a2enmod rewrite
 
