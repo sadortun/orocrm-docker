@@ -12,8 +12,7 @@ git \
 libicu-dev \
 libmcrypt-dev \
 libpng-dev \
-libxml2-dev \
-npm && \
+libxml2-dev && \
 apt-get clean
 
 # Install PHP extensions
@@ -41,7 +40,6 @@ COPY config/php.ini /usr/local/etc/php/
 # Get dependencies
 RUN composer install
 RUN ln -s /usr/bin/nodejs /usr/bin/node && \
-npm install -g grunt-cli bower
 
 RUN chown -R www-data:www-data web app/cache app/config/parameters.yml app/logs
 RUN rm -rf /var/www/html && ln -s /var/www/orocrm/web /var/www/html
