@@ -5,9 +5,9 @@
 
          docker run --name mysql56_orocrm 
          -e MYSQL_ROOT_PASSWORD={set root password}
-         -e MYSQL_DATABASE=orocrm 
+         -e MYSQL_DATABASE=oro_crm 
          -e MYSQL_USER=orocrm
-         -e MYSQL_PASSWORD={set user password} 
+         -e MYSQL_PASSWORD=orocrm 
          -d mysql:5.6
 
 
@@ -16,10 +16,13 @@
          docker run 
          --name orocrm
          -p 80:80
-         --link mysql56_orocrm:{DB alias}
+         --link mysql56_orocrm:dborocrm
          -d olidac/orocrm
 
-Set {DB alias} to any value you want and use it as DB hostname during installation.
+
+If the DB container is stopped, start it with : docker start mysql56_orocrm
+
+url install : /app_nocache.php/installer
 
 # Notes
 As an application in this image is not installed, you have to proceed with web installer instructions.
