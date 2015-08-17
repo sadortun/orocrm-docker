@@ -62,7 +62,6 @@ RUN rm -rf /var/www/html && ln -s /var/www/orocrm/web /var/www/html
 RUN a2enmod rewrite
 
 VOLUME /var/www/orocrm/src
-VOLUME /var/www/orocrm/app/config/parameters.yml
 
 EXPOSE 80
 CMD ["apache2-foreground"]
