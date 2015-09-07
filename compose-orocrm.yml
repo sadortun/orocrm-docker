@@ -1,5 +1,5 @@
 odorocrm:
-   image: olidac/orocrm
+   image: olidac/orocrm:1.8.0
    ports :
     - "80:80"
    links:

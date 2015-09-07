@@ -2,7 +2,7 @@ FROM php:5.6-apache
 
 
 ENV OROCRM_GIT_URL https://github.com/orocrm/crm-application.git
-ENV OROCRM_VERSION 1.8
+ENV OROCRM_VERSION 1.8.0
 
 # Install needed software and dependencies
 RUN DEBIAN_FRONTEND=noninteractive \
