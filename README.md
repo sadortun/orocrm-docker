@@ -35,6 +35,6 @@ with docker compose => docker-compose -f compose-orocrm.yml up -d
 
 docker exec -it orocrm bash
 
-app/console oro:install --env=prod --organization-name=Acme --user-name=admin --user-email=admin@example.com --user-firstname=John --user-lastname=Doe --user-password=admin --sample-data=y --application-url=http://localhost/oro --drop-database --timeout=3600 && chown -R www-data:www-data web/js web/css
+app/console oro:install --organization-name=Acme --user-name=admin --user-email=admin@example.com --user-firstname=John --user-lastname=Doe --user-password=admin --application-url=http://localhost/oro --drop-database --timeout=3600  --sample-data=y --env=prod && chown -R www-data:www-data web/js web/css app/cache
 
 rm -rf app/cache/* && app/console cache:warmup --env=dev && chown -R www-data:www-data app/cache
