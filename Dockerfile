@@ -39,6 +39,7 @@ mv composer.phar /usr/local/bin/composer
 
 # Download sources
 WORKDIR /var/www/orocrm
+RUN git config --global url.https://github.com/.insteadOf git://github.com:
 RUN git clone -b $OROCRM_VERSION $OROCRM_GIT_URL .
 
 # Copy configs and scripts
