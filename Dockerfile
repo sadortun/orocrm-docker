@@ -13,6 +13,8 @@ libicu-dev \
 libmcrypt-dev \
 libpng-dev \
 libxml2-dev \
+nano \
+vim \
 nodejs && \
 apt-get clean
 
@@ -50,7 +52,7 @@ RUN composer install
 COPY nocache/app_nocache.php web/
 COPY nocache/console-nocache app/
 
-RUN chown -R www-data:www-data web/app_nocache.php app/console-nocache
+RUN chown -R www-data:www-data web/app_nocache.php
 
 RUN sed -i 's/database_host: 127.0.0.1/database_host: dborocrm/' /var/www/orocrm/app/config/parameters.yml
 RUN sed -i "s/database_name: oro_crm/database_name: oro_crm/" /var/www/orocrm/app/config/parameters.yml
