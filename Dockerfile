@@ -55,7 +55,7 @@ COPY nocache/console-nocache app/
 
 RUN chown -R www-data:www-data web/app_nocache.php
 
-RUN sed -i 's/database_host: 127.0.0.1/database_host: dborocrm/' /var/www/orocrm/app/config/parameters.yml
+RUN sed -i 's/database_host: 127.0.0.1/database_host: 104.196.25.44/' /var/www/orocrm/app/config/parameters.yml
 RUN sed -i "s/database_name: oro_crm/database_name: oro_crm/" /var/www/orocrm/app/config/parameters.yml
 RUN sed -i "s/database_user: root/database_user: orocrm/" /var/www/orocrm/app/config/parameters.yml
 RUN sed -i "s/database_password: null/database_password: orocrm/" /var/www/orocrm/app/config/parameters.yml
